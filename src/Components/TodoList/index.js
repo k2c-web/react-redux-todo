@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { todoSelector } from '../../store/todoSelectors'
-import { toggleTodoAction } from '../../store/todosActions'
+import { filteredTodosSelector } from '../../store/todoSelectors'
+import { toggleTodoAction, deleteTodoAction } from '../../store/todosActions'
 import { useCallback } from 'react'
 
-function TodoItem({ todo, onToggle }) {
+function TodoItem({ todo, onToggle, onDelete }) {
   return (
-    <li>
+    <li className="todo-item">
       <label htmlFor="">
         <input
           type="checkbox"
@@ -14,27 +14,45 @@ function TodoItem({ todo, onToggle }) {
         />
       </label>
       {todo.title}
+      <span onClick={() => onDelete(todo)} style={{ color: 'red' }}>
+        x
+      </span>
     </li>
   )
 }
 
-export function TodoList({ todos, onToggle }) {
+export function TodoList({ todos, onToggle, onDelete }) {
   return (
     <ul>
       {todos.map((todo) => (
-        <TodoItem todo={todo} onToggle={onToggle} key={todo.id} />
+        <TodoItem
+          todo={todo}
+          onToggle={onToggle}
+          onDelete={onDelete}
+          key={todo.id}
+        />
       ))}
     </ul>
   )
 }
 
 export function TodoListStore() {
-  const todos = useSelector(todoSelector)
+  const todos = useSelector(filteredTodosSelector)
   const dispatch = useDispatch()
 
-  const onToggle = useCallback((todo) => {
-    dispatch(toggleTodoAction(todo))
-  }, [])
+  const onToggle = useCallback(
+    (todo) => {
+      dispatch(toggleTodoAction(todo))
+    },
+    [dispatch],
+  )
 
-  return <TodoList todos={todos} onToggle={onToggle} />
+  const onDelete = useCallback(
+    (todo) => {
+      dispatch(deleteTodoAction(todo))
+    },
+    [dispatch],
+  )
+
+  return <TodoList todos={todos} onToggle={onToggle} onDelete={onDelete} />
 }

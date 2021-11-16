@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.todo-item {
+  width: 600px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border: 1px dotted red;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.todo-filters {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.todo-filters button {
+  margin-right: 10px;
+  cursor: pointer;
+}
