@@ -1,6 +1,7 @@
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { todoSelector } from '../../store/todoSelectors'
 import { toggleTodoAction } from '../../store/todosActions'
+import { useCallback } from 'react'
 
 function TodoItem({ todo, onToggle }) {
   return (
@@ -27,15 +28,13 @@ export function TodoList({ todos, onToggle }) {
   )
 }
 
-// On utilise un composant décoré, qui permet de lier le state du store avec les props du composant
-// Ici on passe les liste des todos du state dans les props du composant via la meme clef
-const TodoListStore = connect(
-  (state) => ({
-    todos: todoSelector(state),
-  }),
-  (dispatch) => ({
-    onToggle: (todo) => dispatch(toggleTodoAction(todo)),
-  }),
-)(TodoList)
+export function TodoListStore() {
+  const todos = useSelector(todoSelector)
+  const dispatch = useDispatch()
 
-export default TodoListStore
+  const onToggle = useCallback((todo) => {
+    dispatch(toggleTodoAction(todo))
+  }, [])
+
+  return <TodoList todos={todos} onToggle={onToggle} />
+}
