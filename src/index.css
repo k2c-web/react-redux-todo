@@ -18,7 +18,7 @@ code {
   margin: 0 auto;
   justify-content: space-between;
   margin-bottom: 10px;
-  border: 1px dotted red;
+  border: 1px dotted indianred;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -33,4 +33,26 @@ code {
 .todo-filters button {
   margin-right: 10px;
   cursor: pointer;
+}
+
+.add-todo {
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.add-todo button {
+  width: 100px;
+  border: 1px solid indianred;
+
+  background: indianred;
+  color: white;
+}
+
+.add-todo input[type='text'] {
+  border: 1px solid indianred;
+  width: 300px;
+  padding: 20px;
+  box-shadow: none;
+  outline: none;
 }
