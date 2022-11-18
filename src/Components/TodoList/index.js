@@ -1,29 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { filteredTodosSelector } from '../../store/todoSelectors'
 import { toggleTodoAction, deleteTodoAction } from '../../store/todosActions'
+import TodoItem from '../TodoItem'
 import { useCallback } from 'react'
-
-function TodoItem({ todo, onToggle, onDelete }) {
-  return (
-    <li className="todo-item">
-      <label htmlFor="">
-        <input
-          type="checkbox"
-          checked={todo.completed}
-          onChange={() => onToggle(todo)}
-        />
-      </label>
-      {todo.title}
-      <span onClick={() => onDelete(todo)} style={{ color: 'red' }}>
-        x
-      </span>
-    </li>
-  )
-}
+import './style.css'
 
 export function TodoList({ todos, onToggle, onDelete }) {
   return (
-    <ul>
+    <ul className="todos-list">
       {todos.map((todo) => (
         <TodoItem
           todo={todo}

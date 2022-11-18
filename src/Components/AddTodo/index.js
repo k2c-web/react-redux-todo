@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { addTodoAction } from '../../store/todosActions'
+import './style.css'
 
 export function AddTodo() {
   const [loading, setLoading] = useState(false)

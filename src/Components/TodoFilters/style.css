@@ -1,0 +1,21 @@
+.todo-filters {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.todo-filters button {
+  margin-right: 10px;
+  cursor: pointer;
+  background: indianred;
+  border: silver;
+  color: white;
+  padding: 10px;
+  transition: all 0.3s;
+}
+
+.todo-filters button:hover {
+  box-shadow: 0 0 0 0.05em indianred;
+  transition: all 0.3s;
+}

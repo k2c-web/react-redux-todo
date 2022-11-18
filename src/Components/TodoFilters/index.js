@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { setFiltersAction } from '../../store/filtersActions'
 import { filtersSelector } from '../../store/filtersSelector'
+import './style.css'
 
 export function TodoFilters({ value, onChange }) {
   return (

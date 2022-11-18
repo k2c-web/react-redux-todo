@@ -1,0 +1,16 @@
+.todo-item {
+  width: 600px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border: 1px dotted indianred;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 768px) {
+  .todo-item {
+    width: 90%;
+  }
+}

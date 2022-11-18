@@ -1,0 +1,45 @@
+.add-todo {
+  width: 400px;
+  margin: 0 auto;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.add-todo button {
+  width: 100px;
+  border: 1px solid indianred;
+  background: indianred;
+  color: white;
+}
+
+.add-todo input[type='text'] {
+  box-sizing: border-box;
+  border: 1px solid indianred;
+  width: calc(100% - 100px);
+  padding: 20px;
+  box-shadow: none;
+  outline: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .add-todo {
+    width: 80%;
+  }
+
+  .add-todo button {
+    width: 70px;
+    border: 1px solid indianred;
+    background: indianred;
+    color: white;
+  }
+
+  .add-todo input[type='text'] {
+    box-sizing: border-box;
+    border: 1px solid indianred;
+    width: calc(100% - 70px);
+    padding: 20px;
+    box-shadow: none;
+    outline: none;
+  }
+}
