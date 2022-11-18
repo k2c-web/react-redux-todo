@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import { setFiltersAction } from '../../store/filtersActions'
 import { filtersSelector } from '../../store/filtersSelector'
+
 export function TodoFilters({ value, onChange }) {
-  console.log('value', value)
   return (
     <div className="todo-filters">
       <button disabled={value === null} onClick={() => onChange(null)}>
@@ -18,6 +18,7 @@ export function TodoFilters({ value, onChange }) {
   )
 }
 
+//CONNECT EXEMPLE
 export const TodoFiltersWithStore = connect(
   (state) => ({
     value: filtersSelector(state),

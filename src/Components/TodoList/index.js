@@ -36,6 +36,7 @@ export function TodoList({ todos, onToggle, onDelete }) {
   )
 }
 
+// Interface between the componentto easily change the state manager technology
 export function TodoListStore() {
   const todos = useSelector(filteredTodosSelector)
   const dispatch = useDispatch()

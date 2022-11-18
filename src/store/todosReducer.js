@@ -1,4 +1,4 @@
-const initialState = [
+const initialState = JSON.parse(localStorage.getItem('todos')) || [
   {
     id: 1,
     title: 'Enregistrer le tutoriel',
@@ -18,7 +18,7 @@ export const DELETE_TODO_ACTION = 'DELETE_TODO_ACTION'
 export function todosReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO_ACTION:
-      return [
+      const newArray = [
         ...state,
         {
           id: state.length + 1,
@@ -26,6 +26,8 @@ export function todosReducer(state = initialState, action) {
           completed: false,
         },
       ]
+      localStorage.setItem('todos', JSON.stringify(newArray))
+      return newArray
     case UPDATE_TODO_ACTION:
       return state.map((todo) => {
         if (todo.id === action.payload.id) {

@@ -44,7 +44,6 @@ code {
 .add-todo button {
   width: 100px;
   border: 1px solid indianred;
-
   background: indianred;
   color: white;
 }
